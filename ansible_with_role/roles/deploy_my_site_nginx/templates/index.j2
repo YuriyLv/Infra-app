@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name_of_website }}</title>
+</head>
+<style>
+    body {background-image: url('./test.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;} 
+</style>
+<body>
+    <div style="text-align:center;">
+        <h2>Hello MotherFucka</h2>
+    </div>
+    <div style="text-align:center;">
+        <h2>my private network IP is: {{ ansible_default_ipv4.address }} </h2>
+    </div>
+</body>
+</html>

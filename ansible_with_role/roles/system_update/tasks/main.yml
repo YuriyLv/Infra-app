@@ -1,0 +1,10 @@
+---
+- block: #block for redhat
+  - name: update on redhat
+    shell: "yum update -y"
+  when: ansible_os_family == "RedHat"
+
+- block: #block for debian
+  - name: update on debian
+    shell: "apt update -y"
+  when: ansible_os_family == "Debian"

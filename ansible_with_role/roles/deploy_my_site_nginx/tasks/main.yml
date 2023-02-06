@@ -1,0 +1,23 @@
+---
+- block: #block for redhat
+  - name: install nginx for redhat
+    yum: name=nginx state=latest
+  when: ansible_os_family == "RedHat"
+
+- block: #block for debian
+  - name: install nginx for debian
+    apt: name=nginx state=latest
+  when: ansible_os_family == "Debian"
+
+- name: copy files to nginx root directory with loop
+  copy: src={{ item }} dest={{ destin_file }} mode=0555
+  loop:
+  - "test.jpg"
+  notify: restart nginx
+
+- name: generate index.html file to nginx root directory
+  template: src=index.j2 dest={{ destin_file }}/index.html mode=0555
+  notify: restart nginx
+
+- name: start nginx when start server
+  service: name=nginx state=started enabled=yes

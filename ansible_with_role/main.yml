@@ -1,0 +1,16 @@
+---
+- hosts: WEB
+  become: yes
+  roles:
+    - deploy_my_site_nginx
+
+- hosts: RUNNER
+  become: yes
+  roles:
+    - wolfsea89.rnp_tools_ansibleroles_installdocker     
+
+- hosts: WEB_AND_RUNNER
+  become: yes
+  roles:
+    - system_update
+      

@@ -1,0 +1,16 @@
+[WEB]
+192.168.56.10
+#192.168.56.11
+
+[RUNNER]
+#192.168.56.12
+
+[WEB_AND_RUNNER:children]
+WEB
+RUNNER
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=vagrant 
+ansible_ssh_pass=vagrant
+name_of_website=helo yopta
